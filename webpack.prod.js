@@ -16,11 +16,17 @@ module.exports = {
 			}
 		}, {
 			test: /\.css$/,
-			use:  ExtractTextPlugin.extract({
+			use: ExtractTextPlugin.extract({
 				use: [{
-					loader: 'css-loader',
-					options: { importLoaders: 1, modules: true, localIdentName: '[local]-[hash:base64:5]' },
-				}],
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+							modules: true,
+							localIdentName: '[local]-[hash:base64:5]'
+						},
+					},
+					'postcss-loader'
+				],
 			}),
 		}]
 	},
@@ -36,7 +42,9 @@ module.exports = {
 		publicPath: '/dist/',
 		filename: 'bundle.js'
 	},
-	node: { Buffer: false },  // https://github.com/btmills/geopattern/issues/32
+	node: {
+		Buffer: false
+	}, // https://github.com/btmills/geopattern/issues/32
 	plugins: [
 		// extract text
 		new ExtractTextPlugin("styles.css"),
