@@ -27,13 +27,10 @@ export default class Project extends Component {
 
 	desClick(event) {
 		let query = document.getElementById('search').value;
-		store.dispatch({
-			type: 'PUT', 
-			data: {
-				search: query,
-				yOffset: window.pageYOffset,
-			},
-		});
+		store.dispatch({type: 'PUT', data: {
+			search: query,
+			yOffset: window.pageYOffset,
+		}});
 		window.location.href = '#/' + this.props.id;
 	}
 
