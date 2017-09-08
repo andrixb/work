@@ -18,7 +18,7 @@ module.exports = {
 			test: /\.css$/,
 			use:  ExtractTextPlugin.extract({
 				use: [{
-					loader: 'css-loader',
+					loader: ['css-loader', 'postcss-loader'],
 					options: { importLoaders: 1, modules: true, localIdentName: '[local]-[hash:base64:5]' },
 				}],
 			}),
